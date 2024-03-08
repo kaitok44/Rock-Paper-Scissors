@@ -11,7 +11,6 @@ function getComputerChoice(){
       return choice =  "Scissors";
   }
 }
-console.log(getComputerChoice());
 
 function playRound(playerSelection, computerSelection){
  if (playerSelection.toLowerCase() === "rock"){
@@ -40,5 +39,6 @@ function playRound(playerSelection, computerSelection){
     } 
 }
 }
-const playerSelection = "paper";
+const playerSelection = "rock";
 const computerSelection = getComputerChoice();
+console.log(playRound(playerSelection, computerSelection));
