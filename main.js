@@ -34,6 +34,9 @@ function playRound(playerSelection, computerSelection){
     console.log("Lose!");
 }
 }
+function scoreTracker (){
+    console.log(`Your score is ${playerScore}. COM score is ${computerScore}.` );
+}
 function gameWinner(){
     if (playerScore === computerScore){
         console.log("Its a Tie!");
@@ -48,22 +51,27 @@ function playGame() {
  playerSelection = prompt("Rock, Paper, Scissors?");
  computerSelection = getComputerChoice();
  playRound(playerSelection, computerSelection);
+ scoreTracker();
 
  playerSelection = prompt("Rock, Paper, Scissors?");
  computerSelection = getComputerChoice();
  playRound(playerSelection, computerSelection);
+ scoreTracker();
 
  playerSelection = prompt("Rock, Paper, Scissors?");
  computerSelection = getComputerChoice();
  playRound(playerSelection, computerSelection);
+ scoreTracker();
 
  playerSelection = prompt("Rock, Paper, Scissors?");
  computerSelection = getComputerChoice();
  playRound(playerSelection, computerSelection);
+ scoreTracker();
 
  playerSelection = prompt("Rock, Paper, Scissors?");
  computerSelection = getComputerChoice();
  playRound(playerSelection, computerSelection);
+ scoreTracker();
  gameWinner();
 }
 
