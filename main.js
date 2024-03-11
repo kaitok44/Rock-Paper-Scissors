@@ -30,13 +30,15 @@ function playRound(playerSelection, computerSelection){
 } else if (playerSelection.toLowerCase() === computerSelection){
     console.log("Tie!");
 } else {
-    (++computerScore)
+    (++computerScore);
     console.log("Lose!");
 }
 }
+
 function scoreTracker (){
     console.log(`Your score is ${playerScore}. COM score is ${computerScore}.` );
 }
+
 function gameWinner(){
     if (playerScore === computerScore){
         console.log("Its a Tie!");
