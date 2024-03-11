@@ -1,3 +1,6 @@
+let playerScore = 0
+let computerScore = 0
+
 function getComputerChoice(){
   let choice = Math.floor(Math.random()*3);
   switch (choice){
@@ -11,22 +14,35 @@ function getComputerChoice(){
       return choice =  "Scissors";
   }
 }
-let playerScore = 0
-let computerScore = 0
 
 function playRound(playerSelection, computerSelection){
  if (playerSelection.toLowerCase() === "rock" && computerSelection === "Scissors"){
-    return "Win!";
+    (++playerScore)
+    return "You Win!";
 } else if (playerSelection.toLowerCase() === "paper" && computerSelection === "Rock"){
-    return "Win!";
+    (++playerScore)
+    return "You Win!"; 
 } else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "Paper"){
-    return "Win!";
+    (++playerScore)
+    return "You Win!";
 } else if (playerSelection.toLowerCase() === computerSelection){
     return "Tie!";
 } else {
-    return "Lose";
-} 
+    (++computerScore)
+    return "Lose!";
 }
-const playerSelection = "scissors";
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+}
+
+function gameWinner (){
+    if (playerScore === computerScore){
+        console.log("Its a Tie!");
+    } else if (playerScore > computerScore){
+        console.log("You win the game!");
+    } else {
+        console.log("You lost the game!");
+    }
+}
+
+function playGame() {
+
+}
