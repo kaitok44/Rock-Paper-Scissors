@@ -35,6 +35,7 @@ function playRound(playerSelection, computerSelection){
 }
 }
 
+
 function scoreTracker (){
     console.log(`Your score is ${playerScore}. COM score is ${computerScore}.` );
 }
@@ -78,3 +79,9 @@ function playGame() {
 }
 
 playGame()
+
+
+for (i = 0; i < 10; i++){
+    if (i%2==1) continue;
+    alert (i);
+}
