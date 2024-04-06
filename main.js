@@ -1,87 +1,99 @@
 let playerScore = 0
-let computerScore = 0
+let compScore = 0
 let playerSelection = ""
-let computerSelection = ""
+let compSelection = ""
 
-function getComputerChoice(){
+function getCompChoice(){
   let choice = Math.floor(Math.random()*3);
   switch (choice){
     case 0:
-      return choice = "Rock";
+      return choice = "rock";
       break;
     case 1:
-      return choice = "Paper";
+      return choice = "paper";
     break;
     case 2:
-      return choice =  "Scissors";
+      return choice =  "scissors";
   }
 }
 
-function playRound(playerSelection, computerSelection){
- if (playerSelection.toLowerCase() === "rock" && computerSelection === "Scissors"){
-    (++playerScore)
+function playRound(playerSelection, compSelection){
+ if (playerSelection === "rock" && compSelection === "scissors"){
+    //(++playerScore)
     console.log("You Win!");
-} else if (playerSelection.toLowerCase() === "paper" && computerSelection === "Rock"){
-    (++playerScore)
+} else if (playerSelection === "paper" && compSelection === "rock"){
+    //(++playerScore)
     console.log("You Win!"); 
-} else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "Paper"){
-    (++playerScore)
+} else if (playerSelection === "scissors" && compSelection === "paper"){
+   // (++playerScore)
     console.log("You Win!");
-} else if (playerSelection.toLowerCase() === computerSelection){
+} else if (playerSelection === compSelection){
     console.log("Tie!");
 } else {
-    (++computerScore);
+    //(++compScore);
     console.log("Lose!");
 }
 }
 
+const rock = document.querySelector("#rock");
+rock.addEventListener("click",() => {
+    playerSelection = "rock";
+    compSelection = getCompChoice();
+ playRound("rock", compSelection);
+})
 
-function scoreTracker (){
-    console.log(`Your score is ${playerScore}. COM score is ${computerScore}.` );
-}
+const paper = document.querySelector("#paper");
+paper.addEventListener("click",() => {
+    playerSelection = "paper";
+    compSelection = getCompChoice();
+ playRound("paper", compSelection);
+})
+const scissors = document.querySelector("#scissors");
+scissors.addEventListener("click",() => {
+    playerSelection = "scissors";
+    compSelection = getCompChoice();
+ playRound("scissors", compSelection);
+})
+// function scoreTracker (){
+//     console.log(`Your score is ${playerScore}. COM score is ${compScore}.` );
+// }
 
-function gameWinner(){
-    if (playerScore === computerScore){
-        console.log("Its a Tie!");
-    } else if (playerScore > computerScore){
-        console.log("You win the game!");
-    } else {
-        console.log("You lost the game!");
-    }
-}
+// function gameWinner(){
+//     if (playerScore === compScore){
+//         console.log("Its a Tie!");
+//     } else if (playerScore > compScore){
+//         console.log("You win the game!");
+//     } else {
+//         console.log("You lost the game!");
+//     }
+// }
 
-function playGame() {
- playerSelection = prompt("Rock, Paper, Scissors?");
- computerSelection = getComputerChoice();
- playRound(playerSelection, computerSelection);
- scoreTracker();
+//  function playGame() {
+//  playerSelection = prompt("Rock, Paper, Scissors?");
+//  computerSelection = getComputerChoice();
+//  playRound(playerSelection, computerSelection);
+//  scoreTracker();
 
- playerSelection = prompt("Rock, Paper, Scissors?");
- computerSelection = getComputerChoice();
- playRound(playerSelection, computerSelection);
- scoreTracker();
+//  playerSelection = prompt("Rock, Paper, Scissors?");
+//  computerSelection = getComputerChoice();
+//  playRound(playerSelection, computerSelection);
+//  scoreTracker();
 
- playerSelection = prompt("Rock, Paper, Scissors?");
- computerSelection = getComputerChoice();
- playRound(playerSelection, computerSelection);
- scoreTracker();
+//  playerSelection = prompt("Rock, Paper, Scissors?");
+//  computerSelection = getComputerChoice();
+//  playRound(playerSelection, computerSelection);
+//  scoreTracker();
 
- playerSelection = prompt("Rock, Paper, Scissors?");
- computerSelection = getComputerChoice();
- playRound(playerSelection, computerSelection);
- scoreTracker();
+//  playerSelection = prompt("Rock, Paper, Scissors?");
+//  computerSelection = getComputerChoice();
+//  playRound(playerSelection, computerSelection);
+//  scoreTracker();
 
- playerSelection = prompt("Rock, Paper, Scissors?");
- computerSelection = getComputerChoice();
- playRound(playerSelection, computerSelection);
- scoreTracker();
- gameWinner();
-}
+//  playerSelection = prompt("Rock, Paper, Scissors?");
+//  computerSelection = getComputerChoice();
+//  playRound(playerSelection, computerSelection);
+//  scoreTracker();
+//  gameWinner();
+// }
 
-playGame()
-
-
-for (i = 0; i < 10; i++){
-    if (i%2==1) continue;
-    alert (i);
-}
+// playGame()
