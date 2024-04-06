@@ -18,20 +18,21 @@ function getCompChoice(){
 }
 
 function playRound(playerSelection, compSelection){
+  const result = document.querySelector("#result");
  if (playerSelection === "rock" && compSelection === "scissors"){
     //(++playerScore)
-    console.log("You Win!");
+    result.textContent="You Win!";
 } else if (playerSelection === "paper" && compSelection === "rock"){
     //(++playerScore)
-    console.log("You Win!"); 
+    result.textContent="You Win!"; 
 } else if (playerSelection === "scissors" && compSelection === "paper"){
    // (++playerScore)
-    console.log("You Win!");
+   result.textContent="You Win!";
 } else if (playerSelection === compSelection){
-    console.log("Tie!");
+   result.textContent="Tie!";
 } else {
     //(++compScore);
-    console.log("Lose!");
+   result.textContent="Lose!";
 }
 }
 
