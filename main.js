@@ -1,5 +1,5 @@
-let playerScore = 0
-let compScore = 0
+let playerScore = 0;
+let compScore = 0;
 let playerSelection = ""
 let compSelection = ""
 
@@ -18,47 +18,80 @@ function getCompChoice(){
 }
 
 function playRound(playerSelection, compSelection){
-  const result = document.querySelector("#result");
+  const roundResult = document.querySelector("#roundResult");
  if (playerSelection === "rock" && compSelection === "scissors"){
-    //(++playerScore)
-    result.textContent="You Win!";
+    playerScore++;
+    roundResult.textContent="You Win!";
 } else if (playerSelection === "paper" && compSelection === "rock"){
-    //(++playerScore)
-    result.textContent="You Win!"; 
+  playerScore++;
+    roundResult.textContent="You Win!"; 
 } else if (playerSelection === "scissors" && compSelection === "paper"){
-   // (++playerScore)
-   result.textContent="You Win!";
+  playerScore++;
+   roundResult.textContent="You Win!";
 } else if (playerSelection === compSelection){
-   result.textContent="Tie!";
+   roundResult.textContent="Tie!";
 } else {
-    //(++compScore);
-   result.textContent="Lose!";
+  compScore++;
+   roundResult.textContent="Lose!";
 }
 }
+
 
 const rock = document.querySelector("#rock");
-rock.addEventListener("click",() => {
-    playerSelection = "rock";
-    compSelection = getCompChoice();
- playRound("rock", compSelection);
-})
-
 const paper = document.querySelector("#paper");
-paper.addEventListener("click",() => {
-    playerSelection = "paper";
-    compSelection = getCompChoice();
- playRound("paper", compSelection);
-})
 const scissors = document.querySelector("#scissors");
-scissors.addEventListener("click",() => {
-    playerSelection = "scissors";
-    compSelection = getCompChoice();
- playRound("scissors", compSelection);
-})
-// function scoreTracker (){
-//     console.log(`Your score is ${playerScore}. COM score is ${compScore}.` );
-// }
+const playAgain = document.querySelector("#playAgain");
+const gameResult = document.querySelector("#gameResult");
 
+playAgain.disabled = true;
+
+function playGame(playerSelection) {
+  compSelection = getCompChoice();
+  playRound(playerSelection, compSelection);
+  humanScore.textContent = "You " + playerScore;
+  robotScore.textContent = "COM "+ compScore;
+
+  if (playerScore == 5){
+    gameResult.textContent = "You Win the game!";
+    rock.disabled = true;
+    paper.disabled = true;
+    scissors.disabled = true;
+    playAgain.disabled =  false;
+  } else if (compScore == 5){
+    gameResult.textContent ="You lost. COM wins";
+    rock.disabled = true;
+    paper.disabled = true;
+    scissors.disabled = true;
+    playAgain.disabled =  false;
+  }
+}
+playAgain.addEventListener("click", ()=>{
+  playerScore = 0;
+  compScore  = 0;
+  rock.disabled = false;
+  paper.disabled = false;
+  scissors.disabled = false;
+  playAgain.disabled =  true;
+  humanScore.textContent = "Human "+ playerScore;
+  robotScore.textContent = "COM "+ compScore;
+  roundResult.textContent = "";
+  gameResult.textContent ="";
+})
+
+rock.addEventListener("click",() => {
+  playGame("rock");
+})
+
+paper.addEventListener("click",() => {
+  playGame("paper");
+})
+
+scissors.addEventListener("click",() => {
+playGame("scissors");
+})
+
+
+// old  code
 // function gameWinner(){
 //     if (playerScore === compScore){
 //         console.log("Its a Tie!");
